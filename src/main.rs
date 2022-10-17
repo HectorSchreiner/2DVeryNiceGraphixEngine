@@ -1,13 +1,13 @@
 pub use minifb;
 use minifb::*;
 pub use renderer::*;
-pub use utils::*;
+pub use util::*;
 
 mod renderer;
-mod utils;
+mod util;
 
 pub fn main() {
-    let mut renderer: Renderer = Renderer {
+    let mut renderer = Renderer {
         buffer: vec![0; WIDTH * HEIGHT],
     };
 
@@ -29,7 +29,7 @@ pub fn main() {
         (&mut renderer, &window);
 
         renderer.clear(Color::BLACK); //Clear screen
-
-        renderer.rect(&Square::new(20, 20, (20, 20)), Color::GREEN);
+        Rectangle::new(20, 20, (20, 20)).draw(&mut renderer, Color::WHITE);
     }
 }
+
